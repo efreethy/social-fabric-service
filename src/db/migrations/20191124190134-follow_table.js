@@ -123,8 +123,9 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('follows').then(() => {
-        queryInterface.dropTable('posts')
-    }).then(queryInterface.dropTable('likes')).then(queryInterface.dropTable('comments'))
+    return queryInterface.dropTable('follows')
+        .then(queryInterface.dropTable('posts'))
+        .then(queryInterface.dropTable('likes'))
+        .then(queryInterface.dropTable('comments'))
   }
 };

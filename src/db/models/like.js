@@ -3,8 +3,6 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const ID_PREFIX = 'like-'
 
-const Post = require('./post')
-
 module.exports = (sequelize, DataTypes) => {
   const Like = sequelize.define('Like', {
     id: {
