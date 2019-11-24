@@ -12,19 +12,8 @@ import config from '../config';
 
 const db = {};
 
-if (config.use_env_variable) {
-  const { username, password, database, host, dialect } = config;
-  var sequelize = new Sequelize(process.env.DATABASE_URL, {
-    username,
-    password,
-    database,
-    dialect,
-    host, 
-    protocol: 'postgres',
-  });
-} else {
-  var sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+const { username, password, database, host, dialect } = config;
+var sequelize = new Sequelize(database, username, password, {host, dialect});
 
 fs
   .readdirSync(`${__dirname}/models`)
