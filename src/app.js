@@ -9,8 +9,6 @@ import logger from 'morgan';
 import ApiError from './api/errors';
 import accounts from './api/routes/accounts';
 
-require('express-joi-validation')({ passError: true })
-
 const app = express();
 
 app.use(bodyParser.json());

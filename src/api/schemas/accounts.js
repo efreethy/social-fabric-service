@@ -2,7 +2,7 @@ export const CreateSchema = f => ({
   email: f.string(),
   username: f.string(),
   password: f.string().required(),
-  accountType: f.string().valid([ 'SPONSOR', 'REPRESENTATIVE' ])
+  accountType: f.string().valid('USER')
 })
 
 

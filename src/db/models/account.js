@@ -38,8 +38,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         isIn: {
-          args: [['REPRESENTATIVE', 'SPONSOR']],
-          msg: "Invalid user_type provided"
+          args: [['USER']],
+          msg: "Invalid accountType provided"
         }
       },
       allowNull: false,

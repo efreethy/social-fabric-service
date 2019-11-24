@@ -10,9 +10,9 @@ console.log('CreateSchema: ', CreateSchema)
 const router  = express.Router();
 
 router.post(
-  '/login', 
+  '/login',
   validate.body(LoginSchema),
-  transaction((req, res, next) =>  
+  transaction((req, res, next) =>
     AccountsResource.login(req)
   )
 );
@@ -20,13 +20,13 @@ router.post(
 router.post(
   '/create',
   validate.body(CreateSchema),
-  transaction((req, res, next) =>  
+  transaction((req, res, next) =>
     AccountsResource.create(req)
   )
 );
 
 router.get(
-  '/:id', 
+  '/:id',
   authenticate,
   validate.params(ReadSchema),
   (req, res, next) => (
