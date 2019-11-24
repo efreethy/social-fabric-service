@@ -1,0 +1,12 @@
+Account
+Follow (follower_id, followed_id)
+Post
+PostLike (account_id, liked_id)
+CommentLike
+
+Comment body
+    Comment body, reply_to_id
+
+
+Message
+    body
