@@ -1,22 +1,21 @@
-#!/usr/bin/env node
+import app from "./app";
+import db from "./db";
 
-import app from './app';
-import db from './db';
+var debug = require("debug")("express-sequelize");
 
-var debug = require('debug')('express-sequelize');
-debug('AA')
-var http = require('http');
+var http = require("http");
 
-
-const PORT = normalizePort(process.env.PORT || '4001');
-app.set('port', PORT);
+const PORT = normalizePort(process.env.PORT || "4001");
+app.set("port", PORT);
 
 var server = http.createServer(app);
 
 db.sequelize.sync().then(() => {
-  server.listen(PORT, () => debug('Express server listening on port ' + server.address().port));
-  server.on('error', onError);
-  server.on('listening', onListening);
+  server.listen(PORT, () =>
+    debug("Express server listening on port " + server.address().port)
+  );
+  server.on("error", onError);
+  server.on("listening", onListening);
 });
 
 function normalizePort(val) {
@@ -36,22 +35,20 @@ function normalizePort(val) {
 }
 
 function onError(error) {
-  if (error.syscall !== 'listen') {
+  if (error.syscall !== "listen") {
     throw error;
   }
 
-  var bind = typeof PORT === 'string'
-    ? 'Pipe ' + PORT
-    : 'Port ' + PORT;
+  var bind = typeof PORT === "string" ? "Pipe " + PORT : "Port " + PORT;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
       process.exit(1);
       break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
       process.exit(1);
       break;
     default:
@@ -61,8 +58,6 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
+  debug("Listening on " + bind);
 }

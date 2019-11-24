@@ -1,23 +1,23 @@
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
-import continuationLocalStorage from 'continuation-local-storage';
-import Sequelize from 'sequelize';
+import continuationLocalStorage from "continuation-local-storage";
+import Sequelize from "sequelize";
 
-import config from '../config';
+import config from "../config";
 
-
-
-'use strict';
+("use strict");
 
 const db = {};
 
 const { username, password, database, host, dialect } = config;
-var sequelize = new Sequelize(database, username, password, {host, dialect});
+var sequelize = new Sequelize(database, username, password, { host, dialect });
 
-fs
-  .readdirSync(`${__dirname}/models`)
-  .filter(file => (file.indexOf('.') !== 0) && (file !== 'index.js') && (file.slice(-3) === '.js'))
+fs.readdirSync(`${__dirname}/models`)
+  .filter(
+    file =>
+      file.indexOf(".") !== 0 && file !== "index.js" && file.slice(-3) === ".js"
+  )
   .forEach(file => {
     var model = sequelize.import(path.join(`${__dirname}/models`, file));
     db[model.name] = model;
@@ -32,6 +32,6 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.Sequelize.useCLS(continuationLocalStorage.createNamespace('transaction'));
+db.Sequelize.useCLS(continuationLocalStorage.createNamespace("transaction"));
 
 export default db;

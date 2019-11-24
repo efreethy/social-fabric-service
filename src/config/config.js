@@ -1,4 +1,3 @@
-console.log('\n\n HYYYYY process.env.INSTANCE_CONNECTION_NAME', process.env.INSTANCE_CONNECTION_NAME)
 
 module.exports = {
   development: {
