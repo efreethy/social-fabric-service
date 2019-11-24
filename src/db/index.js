@@ -29,7 +29,14 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+// posts have likes
 db['Post'].hasMany(db['Like'], { foreign_key: 'liked_foreign_key'})
+// comments have likes
+db['Comment'].hasMany(db['Like'], { foreign_key: 'liked_foreign_key'})
+// posts have comments
+db['Post'].hasMany(db['Comment'], { foreign_key: 'commented_foreign_key'})
+// comments have comments (replies)
+db['Comment'].hasMany(db['Comment'], { foreign_key: 'commented_foreign_key'})
 
 
 db.sequelize = sequelize;
