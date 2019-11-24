@@ -29,6 +29,9 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+db['Post'].hasMany(db['Like'], { foreign_key: 'liked_foreign_key'})
+
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
