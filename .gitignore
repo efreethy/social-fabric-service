@@ -3,4 +3,4 @@ npm-debug.log
 build
 *.sqlite
 .DS_Store
-.idea
+.idea/
