@@ -1,6 +1,6 @@
 'use strict';
 
-var ShortUniqueId = require('short-unique-id');
+var UUID = require('short-unique-id');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const ID_PREFIX = 'account-'
@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       field: 'id',
       defaultValue: () => {
-        var uid = new ShortUniqueId();
+        var uid = new UUID();
         return `${ID_PREFIX+uid.randomUUID(12)}`
       },
     },

@@ -1,12 +1,21 @@
 Account
+
 Follow (follower_id, followed_id)
+
 Post
+Post Photo
+Post Video
+
+Photo
+
+Video
+
 PostLike (account_id, liked_id)
 CommentLike
+MessageLike
 
 Comment body
     Comment body, reply_to_id
-
 
 Message
     body
