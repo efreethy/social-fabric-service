@@ -26,12 +26,12 @@ module.exports = (sequelize, DataTypes) => {
     followed_table: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: 'followed_id',
+      field: 'followed_table',
     },
     followed_foreign_key: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: 'followed_id',
+      field: 'followed_foreign_key',
     },
     createdAt: {
       allowNull: false,
