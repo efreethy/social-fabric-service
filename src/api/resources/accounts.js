@@ -23,7 +23,7 @@ AccountsResource.login = async ({ body: { username, email, password } }) => {
 }
 
 AccountsResource.read = async (id) => {
-  const account = await db.Account.findById(id);
+  const account = await db.Account.findByPk(id);
 
   if (!account) {
     throw new ApiError.ResourceNotFoundError()
