@@ -29,12 +29,28 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+// an account can follow otber accounts
+db['Account'].belongsToMany(db['Account'], {
+    as: 'following_accounts',
+    foreignKey: 'followed_id',
+    constraints: false,
+    through: {
+      model: db['Follow'],
+      scope: {
+        table: 'follows'
+      }
+    }
+  })
+
 // posts have likes
 db['Post'].hasMany(db['Like'], { foreign_key: 'liked_foreign_key'})
+
 // comments have likes
 db['Comment'].hasMany(db['Like'], { foreign_key: 'liked_foreign_key'})
+
 // posts have comments
 db['Post'].hasMany(db['Comment'], { foreign_key: 'commented_foreign_key'})
+
 // comments have comments (replies)
 db['Comment'].hasMany(db['Comment'], { foreign_key: 'commented_foreign_key'})
 
