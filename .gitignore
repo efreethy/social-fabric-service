@@ -1,6 +1,6 @@
 node_modules
-.idea
 npm-debug.log
 build
 *.sqlite
 .DS_Store
+.idea
