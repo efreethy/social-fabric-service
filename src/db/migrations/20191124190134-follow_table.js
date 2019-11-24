@@ -90,6 +90,9 @@ module.exports = {
             allowNull: false,
             unique: true
           },
+          body: {
+             type: Sequelize.STRING,
+          },
           commented_table: {
             type: Sequelize.STRING,
             allowNull: false
