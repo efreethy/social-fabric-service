@@ -11,7 +11,7 @@
     "build": "npm run clean && npm run build:babel",
     "build:babel": "babel -d ./build ./src -s --copy-files",
     "postinstall": "npm run build",
-    "start": "npm run build && NODE_ENV=production npmDEBUG=express-sequelize node ./build/index.js",
+    "start": "NODE_ENV=production INSTANCE_CONNECTION_NAME=social-fabric-260013:us-west2:prod npmDEBUG=express-sequelize node ./build/index.js",
     "start:dev": "npm run build && npmDEBUG=express-sequelize node ./build/index.js",
     "test": "npm run test-unit && npm run test-integration",
     "test-unit": "cross-env NODE_ENV=test ./node_modules/.bin/mocha build/test/unit/*.test.js",
