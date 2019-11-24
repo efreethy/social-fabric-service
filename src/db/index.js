@@ -32,7 +32,7 @@ Object.keys(db).forEach(modelName => {
 // an account can follow otber accounts
 db['Account'].belongsToMany(db['Account'], {
     as: 'following_accounts',
-    foreignKey: 'followed_id',
+    foreignKey: 'followed_foreign_key',
     constraints: false,
     through: {
       model: db['Follow'],

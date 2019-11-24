@@ -13,7 +13,11 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      followed_id: {
+      followed_table: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      followed_foreign_key: {
         type: Sequelize.STRING,
         allowNull: false
       },
